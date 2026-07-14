@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Support Ticketing System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">University Support Prototype</p>
+      <h1>Student Support Ticketing System</h1>
+      <p class="subtitle">A simple workflow prototype for student support requests, enrolment issues, rule waivers, and degree progression questions.</p>
+    </div>
+    <button id="exportBtn" class="secondary-btn">Export Sample Tickets</button>
+  </header>
+
+  <main class="app-shell">
+    <section class="ticket-form panel">
+      <p class="section-label">Student Request</p>
+      <h2>Create a New Ticket</h2>
+      <p class="helper-text">Submit a support request and track it through the student services workflow.</p>
+
+      <form id="ticketForm">
+        <label>Student Name<input id="studentName" type="text" placeholder="Enter student name" required /></label>
+        <label>Student ID<input id="studentId" type="text" placeholder="Example: 12345678" required /></label>
+
+        <label>Category
+          <select id="category" required>
+            <option value="">Select category</option>
+            <option value="Enrolment Issue">Enrolment Issue</option>
+            <option value="Rule Waiver">Rule Waiver</option>
+            <option value="Degree Progression">Degree Progression</option>
+            <option value="Prerequisite Problem">Prerequisite Problem</option>
+            <option value="Technical Access">Technical Access</option>
+          </select>
+        </label>
+
+        <label>Priority
+          <select id="priority" required>
+            <option value="">Select priority</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </label>
+
+        <label>Description<textarea id="description" rows="4" placeholder="Briefly explain the issue" required></textarea></label>
+        <button class="primary-btn" type="submit">Submit Ticket</button>
+      </form>
+    </section>
+
+    <section class="dashboard">
+      <section class="stats-grid">
+        <article class="stat-card"><p>Total Tickets</p><strong id="totalTickets">0</strong><span>All requests</span></article>
+        <article class="stat-card"><p>Open</p><strong id="openTickets">0</strong><span>Waiting for review</span></article>
+        <article class="stat-card"><p>In Progress</p><strong id="progressTickets">0</strong><span>Being handled</span></article>
+        <article class="stat-card"><p>Resolved</p><strong id="resolvedTickets">0</strong><span>Completed</span></article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div><p class="section-label">Admin Dashboard</p><h2>Ticket Queue</h2></div>
+          <div class="filters">
+            <select id="statusFilter">
+              <option value="All">All Statuses</option>
+              <option value="Open">Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+            <select id="categoryFilter">
+              <option value="All">All Categories</option>
+              <option value="Enrolment Issue">Enrolment Issue</option>
+              <option value="Rule Waiver">Rule Waiver</option>
+              <option value="Degree Progression">Degree Progression</option>
+              <option value="Prerequisite Problem">Prerequisite Problem</option>
+              <option value="Technical Access">Technical Access</option>
+            </select>
+          </div>
+        </div>
+        <div id="ticketList" class="ticket-list"></div>
+      </section>
+
+      <section class="workflow-grid">
+        <article class="panel">
+          <p class="section-label">Workflow</p>
+          <h3>Support Process</h3>
+          <div class="timeline">
+            <div><span>1</span><p>Student submits request</p></div>
+            <div><span>2</span><p>Support team reviews category and priority</p></div>
+            <div><span>3</span><p>Ticket moves to in progress</p></div>
+            <div><span>4</span><p>Resolution is recorded and ticket is closed</p></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">System Design</p>
+          <h3>Database Thinking</h3>
+          <div class="schema-card"><strong>Ticket</strong><p>ticketId, studentId, category, priority, status, createdDate, description, staffNote</p></div>
+          <div class="schema-card"><strong>Student</strong><p>studentId, studentName, program, contactEmail</p></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast">Ticket updated</div>
+  <script src="script.js"></script>
+</body>
+</html>

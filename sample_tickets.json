@@ -1,0 +1,22 @@
+[
+  {
+    "ticketId": "TCK-1001",
+    "studentName": "Sample Student",
+    "studentId": "22140001",
+    "category": "Enrolment Issue",
+    "priority": "High",
+    "status": "Open",
+    "description": "Unable to enrol in a required professional experience unit due to a prerequisite issue.",
+    "createdDate": "2026-07-14"
+  },
+  {
+    "ticketId": "TCK-1002",
+    "studentName": "Alex Chen",
+    "studentId": "22140002",
+    "category": "Rule Waiver",
+    "priority": "Medium",
+    "status": "In Progress",
+    "description": "Requesting a rule waiver because the required subject was not visible in the study plan.",
+    "createdDate": "2026-07-12"
+  }
+]
